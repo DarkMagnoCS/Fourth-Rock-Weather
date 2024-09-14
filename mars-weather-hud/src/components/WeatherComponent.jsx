@@ -7,7 +7,7 @@ const WeatherComponent = () => {
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        const response = await fetch('YOUR_NASA_API_URL');
+        const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0');
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
         setWeatherData(data);
