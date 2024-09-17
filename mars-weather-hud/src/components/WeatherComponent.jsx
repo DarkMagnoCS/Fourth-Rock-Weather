@@ -1,37 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const WeatherComponent = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [isError, setIsError] = useState(false);
+const MarsWeather = () => {
+  const [solData, setSolData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    const fetchWeatherData = async () => {
+    // Fetch data from NASA API
+    const fetchData = async () => {
+      const url = "https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0";
+      
       try {
-        const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0');
-        if (!response.ok) throw new Error('Failed to fetch data');
+        const response = await fetch(url);
         const data = await response.json();
-        setWeatherData(data);
-        setIsError(false);
+
+        const solKeys = data.sol_keys || [];
+
+        if (solKeys.length > 0) {
+          // Get the first Sol's data
+          const sol = solKeys[0];
+          const atmosphericTemp = data[sol]?.AT?.av || 'No data available';
+          const windSpeed = data[sol]?.HWS?.av || 'No data available';
+          const pressure = data[sol]?.PRE?.av || 'No data available';
+
+          // Set the fetched data
+          setSolData({
+            sol,
+            atmosphericTemp,
+            windSpeed,
+            pressure,
+          });
+        } else {
+          // Handle no Sol data
+          setErrorMessage('No Sol data available.');
+        }
       } catch (error) {
-        setIsError(true);
-        setWeatherData({
-          temperature: '-55', // average data while fetching actual data
-          condition: 'Unknown', // Placeholder data
-        });
+        setErrorMessage('Error fetching data.');
       }
     };
 
-    fetchWeatherData();
-  }, []);
+    fetchData();
+  }, []); // Empty dependency array ensures this runs only once after component mounts
 
   return (
     <div>
-      <h1>Weather on Mars</h1>
-      <p>Temperature: {weatherData?.temperature}°C</p>
-      <p>Condition: {weatherData?.condition}</p>
-      {isError && <p>Showing last available data.</p>}
+      <h1>Mars Weather</h1>
+      {errorMessage ? (
+        <p>{errorMessage}</p>
+      ) : solData ? (
+        <div>
+          <h2>Sol {solData.sol}</h2>
+          <p>Average Temperature: {solData.atmosphericTemp} °C</p>
+          <p>Average Wind Speed: {solData.windSpeed} m/s</p>
+          <p>Average Atmospheric Pressure: {solData.pressure} Pa</p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };
 
-export default WeatherComponent;
+export default MarsWeather;
