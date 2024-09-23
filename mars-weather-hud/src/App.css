@@ -21,7 +21,7 @@
 
 [data-theme="dark"] {
   --bg-color: #2c3e50;
-  --text-color: #ecf0f1;
+  --text-color: #ecf0f1fa;
 }
 
 .App {
@@ -58,4 +58,50 @@ main {
 footer {
   margin-top: auto;
   width: 100%;
+}
+.App-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./original.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  padding: 20px;
+  color: var(--text-color);
+}
+
+.weather-container, .info-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Light, semi-transparent background */
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container {
+  font-size: 1.2rem;
+}
+
+.info-container {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+/* Dark Mode Adjustments */
+[data-theme="dark"] {
+  --bg-color: #2c3e50;
+  --text-color: #ecf0f1; /* Light text for better contrast in dark mode */
+}
+
+[data-theme="dark"] .weather-container, 
+[data-theme="dark"] .info-container {
+  background-color: rgba(44, 62, 80, 0.8); /* Darker background for containers */
+  color: #ecf0f1; /* Light text inside containers */
+}
+
+[data-theme="dark"] a {
+  color: #1abc9c; /* Lighter color for links */
 }
