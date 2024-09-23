@@ -13,3 +13,49 @@
     width: 50%;
   }
 }
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #2c3e50;
+  --text-color: #ecf0f1;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+  width: 100%;
+  margin: 0 auto; /* Center the header */
+  padding: 20px 10px; /* Adjust padding for smaller screens */
+  box-sizing: border-box; /* Include padding and border in element's width/height */
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.divider {
+  height: 2px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.App-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  margin-top: auto;
+  width: 100%;
+}

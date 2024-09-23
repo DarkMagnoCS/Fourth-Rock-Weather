@@ -1,0 +1,60 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+    margin: 0 auto; /* Center the header */
+    padding: 10px 20px; /* Adjust padding for better fit */
+    box-sizing: border-box; /* Make sure padding is accounted for */
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  
+  .app-name {
+    font-size: 1.5rem;
+  }
+  
+  .link-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .link-container a {
+    margin-right: 20px;
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      padding: 10px; /* Smaller padding for mobile */
+    }
+  
+    .app-name {
+      font-size: 1.2rem;
+    }
+  
+    .icon {
+      font-size: 20px;
+    }
+  
+    .theme-toggle {
+      font-size: 20px;
+    }
+  }
+  
