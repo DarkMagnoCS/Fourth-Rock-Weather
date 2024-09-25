@@ -29,7 +29,13 @@ https://d1f83oux5dkefi.cloudfront.net/
 
 ![dark](https://github.com/user-attachments/assets/d56ad7cb-fee5-4fff-bd5e-b98b12c3f696)
 ![light](https://github.com/user-attachments/assets/7a71018a-14d2-432d-ae5b-fd1b0e18bf0b)---
+![mobidark](https://github.com/user-attachments/assets/4e0ffbed-c285-4df5-ad29-b77340597359)
 
+
+
+---
+
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
@@ -46,8 +52,4 @@ Connect with me on [LinkedIn](https://www.linkedin.com/in/alejandro-contreras-sa
 ## Contributions
 
 Feel free to submit pull requests or issues to help improve the app!
-![mobilight](https://github.com/user-attachments/assets/8f6ae24c-078e-4402-ad9b-fd9139d6cef7)
-
----
-
 
